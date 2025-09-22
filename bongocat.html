@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bongo Cat Key Press</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    #cat {
+      width: 400px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s;
+    }
+
+    .tap {
+      transform: translate(-50%, -50%) scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <img id="cat" src="https://media.tenor.com/89bDuqZpf4kAAAAi/bongo-cat.gif" alt="Bongo Cat">
+
+  <script>
+    const cat = document.getElementById('cat');
+    const keys = '1234567890qwertyuiopasdfghjkl;zxcvbnm '.split('');
+
+    document.addEventListener('keydown', (e) => {
+      if (keys.includes(e.key.toLowerCase())) {
+        cat.classList.add('tap');
+      }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (keys.includes(e.key.toLowerCase())) {
+        cat.classList.remove('tap');
+      }
+    });
+  </script>
+</body>
+</html>
